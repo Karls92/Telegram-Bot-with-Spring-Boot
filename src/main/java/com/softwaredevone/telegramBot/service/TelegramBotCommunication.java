@@ -7,7 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Service
-public class TelegramBoot extends TelegramLongPollingBot {
+public class TelegramBotCommunication extends TelegramLongPollingBot {
 	
 	@Override
 	public void onUpdateReceived(Update update) {
@@ -33,11 +33,11 @@ public class TelegramBoot extends TelegramLongPollingBot {
 	
 	@Override
 	public String getBotUsername() {
-		return "";
+		return "softwareDevOneBot";
 	}
 	
 	@Override
 	public String getBotToken() {
-		return "";
+		return "6084512114:AAFCR6cTMq9wO__fqxqvu8xoj1j9rtIfM7M";
 	}
 }
