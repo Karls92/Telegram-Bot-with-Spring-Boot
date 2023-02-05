@@ -7,25 +7,25 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Service
-public class TelegramBotCommunication extends TelegramLongPollingBot {
+public class TelegramBoot extends TelegramLongPollingBot {
 	
 	@Override
 	public void onUpdateReceived(Update update) {
 		//get telegram user message
-		final String messageFromUser = update.getMessage().getText();
+		final String messageTextReceived = update.getMessage().getText();
 		
 		//testing the received message
-		System.out.println("The User has written: " + messageFromUser);
+		System.out.println("The User has written: " + messageTextReceived);
 		
 		final long chatId = update.getMessage().getChatId();
 		
 		// send a response message to the user
-		SendMessage responseMessage = new SendMessage();
-		responseMessage.setChatId(chatId);
-		responseMessage.setText("Thanks for contact us! I'm softwareDevOne, your developer friend. My Team and I are here for helping you with your projects. Tell me more about your project and its requirements.");
+		SendMessage message = new SendMessage();
+		message.setChatId(chatId);
+		message.setText("Thanks for contact us! I am softwareDevOne, your developer friend. My Team and I are here for helping you with your projects. Tell me more about your project and its requirements.");
 		
 		try {
-			execute(responseMessage);
+			execute(message);
 		} catch(TelegramApiException ex) {
 			ex.printStackTrace();
 		}
